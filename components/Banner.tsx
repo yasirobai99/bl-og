@@ -11,7 +11,7 @@ const Banner = () => {
                 md:mt-8"
           >
             Welcome to{" "}
-            <span className="underline underline-offset-2 decoration-4 decoration-[#de0000]">
+            <span className="underline underline-offset-2 decoration-4 decoration-[#00de7a]">
             the bl-og
             </span>
             {""} favourite blog in the Devosphere.
@@ -19,7 +19,7 @@ const Banner = () => {
         </div>
         <p className=" max-w-xs md:mt-2 py-2 mt-6 font-extrabold text-[#073042]">
         New product feature |{" "}
-          <span className="underline underline-offset-2 decoration-4 decoration-[#de1300]">
+          <span className="underline underline-offset-2 decoration-4 decoration-[#00de7a]">
             {" "}
             The latest in technology
           </span>{" "}
