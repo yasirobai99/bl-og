@@ -22,7 +22,7 @@ const Header = () => {
           href="https://github.com/yasirobai99"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-2 py-3 text-sm md:text-base bg-[#073042] text-[#00de7a] hover:bg-[#00de7a] hover:text-[#073042] flex items-center rounded-lg text-center"
+          className="px-2 py-3 text-sm md:text-base bg-[#00de7a] text-[#073042] hover:bg-[#073042] hover:text-[#00de7a] flex items-center rounded-lg text-center"
         >
            Follow me on Github <Image
             className="rounded-full"

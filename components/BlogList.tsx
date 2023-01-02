@@ -37,7 +37,7 @@ function BlogList({ posts }: Props) {
 
                   <div className="flex flex-col md:flex-row gap-y-2 md:gap-x-2 items-center">
                     {post.categories.map((category) => (
-                      <div className="bg-[#00de7a] text-center text-white px-3 py-1 rounded-lg text-sm font-semibold]">
+                      <div className="bg-[#00de7a] text-center text-[#073042] px-3 py-1 rounded-lg text-sm font-semibold]">
                         <p>{category.title}</p>
                       </div>
                     ))}
