@@ -28,6 +28,5 @@ const Banner = () => {
       </div>
     );
   };
-  
   export default Banner;
   
