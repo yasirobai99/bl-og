@@ -11,7 +11,7 @@ const props = {
 };
 
 export const myTheme = buildLegacyTheme({
-
+/* Base theme colors */
     "--black": props["--my-Colour"],
     "--white": props["--my-white"],
 
@@ -21,19 +21,23 @@ export const myTheme = buildLegacyTheme({
     "--component-bg": props["--my-Colour"],
     "--component-text-color": props["--my-white"],
 
+/* Brand */
     "--brand-primary": props["--my-brand"],
 
+// Default button
     "--default-button-color": "#666",
     "--default-button-primary-color": props["--my-brand"],
     "--default-button-success-color": props["--my-green"],
     "--default-button-warning-color": props["--my-red"],
     "--default-button-danger-color": props["--my-red"],
-
+    
+/* State */
     "--state-info-color": props["--my-brand"],
     "--state-success-color": props["--my-green"],
     "--state-warning-color": props["--my-yellow"],
     "--state-danger-color": props["--my-red"],
-
+    
+/* Navbar */
     "--main-navigation-color": props["--my-Colour"],
     "--main-navigation-color--inverted": props["--my-white"],
 

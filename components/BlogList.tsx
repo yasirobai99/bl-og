@@ -1,65 +1,59 @@
-import Image from "next/image";
-import urlFor from "../lib/urlFor";
-import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
+"use client";
+import { useState } from "react";
 import ClientSideRoute from "./ClientSideRoute";
+import PostCard from "./PostCard";
 
 type Props = {
   posts: Post[];
 };
 
-function BlogList({ posts }: Props) {
+const BlogList = ({ posts }: Props) => {
+  const [showAll, setShowAll] = useState(false);
+  const handleClick = () => {
+    setShowAll((prevShowAll) => !prevShowAll);
+  };
+
+  const items = showAll ? posts : posts.slice(0, 4);
+
   return (
-    <div>
+    <div className="relative z-0">
       <hr className="border-[#00de7a] mb-10" />
-
       <div className="grid grid-cols-1 md:grid-cols-2 px-10 gap-10 gap-y-16 pb-24">
-        {posts.map((post) => (
-          <ClientSideRoute route={`/post/${post.slug.current}`} key={post._id}>
-            <div className="flex flex-col group cursor-pointer">
-              <div className="relative w-full h-80 drop-shadow-xl group-hover:scale-105 transition-transform duration-200 ease-out">
-                <Image
-                  className="object-cover object-left lg:object-center"
-                  src={urlFor(post.mainImage).url()}
-                  alt={post.author.name}
-                  fill
-                />
-                <div className="absolute bottom-0 w-full bg-opacity-20 bg-black backdrop-blur-lg rounded drop-shadow-lg text-white p-5 flex justify-between">
-                  <div>
-                    <p className="font-bold">{post.title}</p>
-                    <p>
-                      {new Date(post._createdAt).toLocaleDateString("en-US", {
-                        day: "numeric",
-                        month: "long",
-                        year: "numeric",
-                      })}
-                    </p>
-                  </div>
-
-                  <div className="flex flex-col md:flex-row gap-y-2 md:gap-x-2 items-center">
-                    {post.categories.map((category) => (
-                      <div className="bg-[#00de7a] text-center text-[#073042] px-3 py-1 rounded-lg text-sm font-semibold]">
-                        <p>{category.title}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-5 flex-1">
-                <p className="underline text-lg font-bold">{post.title}</p>
-                <p className="line-clamp-2 text-gray-500">{post.description}</p>
-              </div>
-
-              <p className="mt-5 font-bold flex items-center group-hover:underline">
-                Read Post
-                <ArrowUpRightIcon className="ml-2 h-4 w-4" />
-              </p>
-            </div>
-          </ClientSideRoute>
+        {items.map((item) => (
+          <>
+            <ClientSideRoute
+              route={`/post/${item.slug.current}`}
+              key={item._id}
+            >
+              <PostCard post={item} />
+            </ClientSideRoute>
+          </>
         ))}
+      </div>
+      <div className="flex justify-center">
+        {!showAll ? (
+          <button
+            type="button"
+            className="group relative overflow-hidden bg-white px-2 py-3 text-sm md:text-base rounded-lg"
+            onClick={handleClick}
+          >
+            <div className="absolute inset-0 w-3  bg-[#00de7a]  transition-all duration-[350ms] ease-out group-hover:w-full"></div>
+            <span className="relative text-black group-hover:text-white ">
+              Load More Articles
+            </span>
+          </button>
+        ) : (
+          <button
+            type="button"
+            className="bg-[#00de7a] text-[#FFF] hover:bg-[#073042] px-2 py-3 text-sm md:text-base rounded-lg transition-all duration-[250ms] ease-out"
+            onClick={handleClick}
+          >
+            All articles loaded
+          </button>
+        )}
       </div>
     </div>
   );
-}
+};
 
 export default BlogList;

@@ -24,8 +24,7 @@ Want coding challenges & Solutions sent to your inbox daily?
     </div>
     <>{props.renderDefault(props)}</>
     </div>
+);
+};
 
-  )
-}
-
-export default StudioNavbar
+export default StudioNavbar;

@@ -8,6 +8,7 @@ export default function CustomStudioHead() {
 	return (
 		<>
 			<NextStudioHead favicons={false} />
+			<title>CMS</title>
 			<link
 				rel="icon"
 				type="image/png"

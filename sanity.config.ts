@@ -36,4 +36,3 @@ export default defineConfig({
   },
   theme: myTheme,
 });
-
